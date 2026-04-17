@@ -1,0 +1,76 @@
+@use "../../styles/variables.scss" as variables;
+
+
+.task {
+  display: block;
+  padding: 16px;
+  border-radius: variables.$radius;
+  background: variables.$card-bg;
+  box-shadow: variables.$shadow-sm;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: translateY(-3px);
+  }
+  &.checklist {
+    .items {
+      margin-top: 10px;
+      padding-left: 0;
+      list-style: none;
+    }
+    .li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+    }
+  }
+}
+.id {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.priority {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: variables.$radius;
+  text-transform: uppercase;
+  color: white;
+  &.low {
+    background: variables.$priority-low;
+  }
+  &.high {
+    background: variables.$priority-high;
+  }
+  &.medium {
+    background: variables.$priority-medium;
+  }
+  &.critical {
+    background: variables.$priority-critical;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #{variables.$text-secondary};
+}
+.category {
+  font-size: 12px;
+  font-weight: bold;
+  color: #{variables.$text-secondary};
+}
+.description {
+  font-size: 15px;
+  color: #{variables.$text-primary};
+ 
+}

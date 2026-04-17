@@ -1,0 +1,39 @@
+@use "../../styles/variables.scss" as variables;
+
+
+.card {
+  background: variables.$card-bg;
+  border: 1px solid #{variables.$border};
+  border-radius:#{variables.$radius};
+  padding: 16px;
+  box-shadow: #{variables.$shadow-sm};
+  transition: 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+select {
+  padding: 6px 10px;
+  border-radius: variables.$radius;
+  border: 1px solid #{variables.$border};
+  background: white;
+  outline: none;
+}
+
+
+button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: variables.$radius;
+  cursor: pointer;
+  background: transparent;
+  color: #{variables.$text-secondary};
+  transition: 0.2s;
+
+  &:hover {
+    color: #{variables.$text-primary};
+    background: #f3f4f6;
+  }
+}

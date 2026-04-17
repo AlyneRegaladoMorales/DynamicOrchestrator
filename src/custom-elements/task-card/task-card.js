@@ -1,7 +1,10 @@
-import { html, LitElement } from "lit";
+import { css, html, LitElement, unsafeCSS } from "lit";
 import { HasAnalytics } from "../shared/analytics-mixin";
+import styles from "./task-card.scss?inline";
 
 export class TaskCard extends HasAnalytics(LitElement) {
+  static styles = unsafeCSS(styles);
+
   static properties = {
     task: { type: Object },
   };
@@ -26,25 +29,28 @@ export class TaskCard extends HasAnalytics(LitElement) {
     this._handleAction("update-task", {
       priority: e.target.value,
     });
+    console.log("style", styles);
   }
 
   render() {
     return html`
-      <slot></slot>
+      <div class="card">
+        <slot></slot>
 
-      <!-- <button @click=${() => this._handleAction("update-task")}>
+        <!-- <button @click=${() => this._handleAction("update-task")}>
         Actualizar
       </button> -->
-      <select .value=${this.task.priority} @change=${this._onPriorityChange}>
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-        <option value="critical">Critical</option>
-      </select>
+        <select .value=${this.task.priority} @change=${this._onPriorityChange}>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+          <option value="critical">Critical</option>
+        </select>
 
-      <button @click=${() => this._handleAction("delete-task")}>
-        Eliminar
-      </button>
+        <button @click=${() => this._handleAction("delete-task")}>
+          Eliminar
+        </button>
+      </div>
     `;
   }
 }
