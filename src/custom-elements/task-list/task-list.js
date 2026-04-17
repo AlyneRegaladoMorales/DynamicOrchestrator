@@ -7,16 +7,21 @@ export class TaskList extends LitElement {
   static properties = {
     task: { type: Object },
   };
+  _renderHeader(task) {
+    return html`
+      <div class="header">
+        <span class="id">${task.id}</span>
+        <span class="priority ${task.priority}">${task.priority}</span>
+      </div>
+      <span class="type ">${task.type}</span>
+    `;
+  }
   _renderTemplate(task) {
     switch (task.type) {
       case "text":
         return html`
-          <task-card class="task text" .task=${task}>
-            <div class="header">
-              <span class="id">${task.id}</span>
-              <span class="priority ${task.priority}">${task.priority}</span>
-            </div>
-
+          <task-card class="task" .task=${task}>
+            ${this._renderHeader(task)}
             <h2 class="title">${task.content.title}</h2>
             <p class="description">${task.content.description}</p>
             <span class="category">Categoria: ${task.metadata.category}</span>
@@ -26,10 +31,7 @@ export class TaskList extends LitElement {
       case "checklist":
         return html`
           <task-card .task=${task} class="task checklist">
-            <div class="header">
-              <span class="id">${task.id}</span>
-              <span class="priority ${task.priority}">${task.priority}</span>
-            </div>
+            ${this._renderHeader(task)}
             
             <h2 class="title">${task.content.title}</h2>
 
@@ -52,14 +54,11 @@ export class TaskList extends LitElement {
 
       case "alert":
         return html`
-          <task-card .task=${task} class="task alert">
-            <div class="header">
-              <span class="id">${task.id}</span>
-              <span class="priority ${task.priority}">${task.priority}</span>
-            </div>
+          <task-card .task=${task} class="task">
+            ${this._renderHeader(task)}
             <h2 class="title">${task.content.title}</h2>
-             <p class="description">${task.content.message}</p>
-             <span>${task.content.errorCode}</span>
+            <p class="description">${task.content.message}</p>
+            <span class="alert">${task.content.errorCode}</span>
 
             <span class="category">Categoria: ${task.metadata.category}</span>
           </task-card>

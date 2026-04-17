@@ -32,11 +32,15 @@ export class DashboardPage extends LitElement {
       <div class="dashboard">
         <h1>Lista de actividades</h1>
 
-        <div class="list">
-          ${this.task.map(
-            (task) => html` <task-list .task=${task}></task-list> `,
-          )}
-        </div>
+        ${this.task.length > 0
+          ? html`
+              <div class="list">
+                ${this.task.map(
+                  (task) => html` <task-list .task=${task}></task-list> `,
+                )}
+              </div>
+            `
+          : html` <p>No hay actividades para mostrar.</p> `}
       </div>
     `;
   }

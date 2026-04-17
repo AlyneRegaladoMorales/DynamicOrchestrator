@@ -2,10 +2,9 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif,  ;
+  font-family: Arial, sans-serif;
   background: variables.$bg;
   color: variables.$text-primary;
-  
 }
 
 .dashboard {
@@ -15,12 +14,31 @@ body {
   justify-content: center;
   align-items: center;
   gap: 16px;
+  margin: 20px 100px;
 }
-h1, h2, h3 {
+h1,
+h2 {
   margin: 0;
 }
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+}
+@media (max-width: 1200px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
 }

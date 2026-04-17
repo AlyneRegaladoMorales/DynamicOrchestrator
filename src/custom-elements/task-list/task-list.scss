@@ -1,6 +1,5 @@
 @use "../../styles/variables.scss" as variables;
 
-
 .task {
   display: block;
   padding: 16px;
@@ -11,20 +10,21 @@
   &:hover {
     transform: translateY(-3px);
   }
-  &.checklist {
-    .items {
-      margin-top: 10px;
-      padding-left: 0;
-      list-style: none;
-    }
-    .li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 0;
-    }
+}
+.checklist {
+  .items {
+    margin-top: 10px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
   }
 }
+
 .id {
   font-size: 12px;
   opacity: 0.7;
@@ -62,15 +62,34 @@
 
 .subtitle {
   font-size: 16px;
-  color: #{variables.$text-secondary};
+  color: variables.$text-secondary;
 }
 .category {
   font-size: 12px;
   font-weight: bold;
-  color: #{variables.$text-secondary};
+  color: variables.$text-secondary;
 }
 .description {
   font-size: 15px;
-  color: #{variables.$text-primary};
- 
+  color: variables.$text-primary;
+}
+
+@mixin badge($bg, $color) {
+  display: flex;
+  justify-content: center;
+  border-radius: variables.$radius;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: $bg;
+  color: $color;
+}
+.type {
+  @include badge(variables.$border, variables.$text-placeholder);
+  text-transform: uppercase;
+}
+
+.alert {
+  @include badge(variables.$priority-high, white);
+  margin-top: 10px;
 }
