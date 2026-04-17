@@ -3,7 +3,7 @@ import "../task-card/task-card";
 import styles from "./task-list.scss?inline";
 
 export class TaskList extends LitElement {
-  static styles = [unsafeCSS(styles)];
+  static styles = unsafeCSS(styles);
   static properties = {
     task: { type: Object },
   };
