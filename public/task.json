@@ -1,0 +1,64 @@
+{
+  "project": "CloudSync Dashboard",
+  "lastUpdated": "2026-04-15T10:00:00Z",
+  "data": [
+    {
+      "id": "t-101",
+      "type": "text",
+      "priority": "medium",
+      "content": {
+        "title": "Actualizar dependencias de NPM",
+        "description": "Revisar vulnerabilidades en el package.json y subir versiones de Lit Element."
+      },
+      "metadata": {
+        "category": "mantenimiento",
+        "trackable": true
+      }
+    },
+    {
+      "id": "t-102",
+      "type": "checklist",
+      "priority": "high",
+      "content": {
+            "title": "Despliegue a Producción",
+            "items": [
+                { "id": "i1", "label": "Correr tests unitarios", "completed": true },
+                { "id": "i2", "label": "Build de producción", "completed": false },
+                { "id": "i3", "label": "Purgar caché de Nginx", "completed": false }
+            ]
+        },
+      "metadata": {
+        "category": "devops",
+        "trackable": true
+      }
+    },
+    {
+      "id": "t-103",
+      "type": "alert",
+      "priority": "critical",
+      "content": {
+        "title": "Fallo en el Data Manager",
+        "message": "La persistencia en LocalStorage ha fallado. Se requiere revisión inmediata de la clase base.",
+        "errorCode": "ERR_DOM_004"
+      },
+      "metadata": {
+        "category": "sistema",
+        "trackable": false
+      }
+    },
+    {
+      "id": "t-104",
+      "type": "text",
+      "priority": "low",
+      "content": {
+        "title": "Documentar Mixins",
+        "description": "Añadir JSDoc a los ficheros en la carpeta shared/."
+      },
+      "metadata": {
+        "category": "documentacion",
+        "trackable": true
+      }
+    }
+  ]
+}
+
