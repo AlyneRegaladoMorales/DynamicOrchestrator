@@ -1,7 +1,7 @@
 import { html, LitElement, unsafeCSS } from "lit";
 import "../task-card/task-card";
 import styles from "./task-list.scss?inline";
-
+import "../shared/error-boundary"
 export class TaskList extends LitElement {
   static styles = unsafeCSS(styles);
   static properties = {
@@ -68,8 +68,24 @@ export class TaskList extends LitElement {
         return html`<p>Tipo de tarea desconocido</p>`;
     }
   }
+
+  _safeRender(task) {
+    try {
+      return this._renderTemplate(task);
+    } catch (error) {
+      console.error(`Error renderizando tarea ${task?.id}:`, error);
+      return html`
+        <error-boundary>
+          <div class="error-card"> 
+            No se pudo renderizar la tarea <strong>${task?.id}</strong>
+            <small>${error.message}</small>
+          </div>
+        </error-boundary>
+      `;
+    }
+  }
   render() {
-    return html` <div class="list">${this._renderTemplate(this.task)}</div> `;
+    return html` <div class="list">${this._safeRender(this.task)}</div> `;
   }
 }
 customElements.define("task-list", TaskList);

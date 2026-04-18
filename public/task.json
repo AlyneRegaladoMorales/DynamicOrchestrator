@@ -58,6 +58,16 @@
         "category": "documentacion",
         "trackable": true
       }
+    },
+    {
+      "id": "t-105",
+      "type": "text",
+      "priority": "low",
+      "content": null,
+      "metadata": {
+        "category": "documentacion",
+        "trackable": true
+      }
     }
   ]
 }

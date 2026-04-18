@@ -93,3 +93,29 @@
   @include badge(variables.$priority-high, white);
   margin-top: 10px;
 }
+
+.error-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid variables.$error-medium;  
+  background-color: variables.$error-low;      
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: variables.$error-high;               
+  }
+
+  small {
+    font-size: 12px;
+    color: variables.$error-high; 
+    opacity: 0.8;
+    padding-left: 24px;          
+  }
+}
